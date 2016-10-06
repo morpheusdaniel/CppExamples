@@ -12,7 +12,7 @@ typedef struct _Account
 } Account;
 
 Account pArray[ARRAY_LEN];			// Account 저장을 위한 배열
-int index=0;										// 저장된 Account 수
+int idx=0;										// 저장된 Account 수
 
 void PrintMenu();								// 메뉴 출력
 void MakeAccount();							// 1. 계좌 개설
@@ -77,11 +77,11 @@ void MakeAccount()
 	cout<<"이름 : ";				cin>>name;
 	cout<<"입금액 : ";				cin>>balance;
 	
-	pArray[index].id=id;
-	pArray[index].balance=balance;
-	strcpy(pArray[index].name, name);
+	pArray[idx].id=id;
+	pArray[idx].balance=balance;
+	strcpy(pArray[idx].name, name);
 	
-	index++;
+	idx++;
 }
 
 void Deposit()
@@ -92,7 +92,7 @@ void Deposit()
 	cout<<"계좌 ID : ";			cin>>id;
 	cout<<"입금액 : ";				cin>>money;
 	
-	for(int i=0;i<index;i++)
+	for(int i=0;i<idx;i++)
 	{
 		if(pArray[i].id == id)
 		{
@@ -112,7 +112,7 @@ void Withdraw()
 	cout<<"계좌 ID : ";			cin>>id;
 	cout<<"출금액 : ";				cin>>money;
 	
-	for(int i=0; i<index;i++)
+	for(int i=0; i<idx;i++)
 	{
 		if(pArray[i].id == id)
 		{
@@ -131,7 +131,7 @@ void Withdraw()
 
 void Inquire()
 {
-	for(int i=0;i<index;i++)
+	for(int i=0;i<idx;i++)
 	{
 		cout<<"계좌 ID : "<<pArray[i].id<<endl;
 		cout<<"이름 : "<<pArray[i].name<<endl;
