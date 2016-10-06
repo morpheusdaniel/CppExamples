@@ -78,4 +78,63 @@ void MakeAccount()
 	cout<<"입금액 : ";				cin>>balance;
 	
 	pArray[index].id=id;
+	pArray[index].balance=balance;
+	strcpy(pArray[index].name, name);
+	
+	index++;
+}
 
+void Deposit()
+{
+	int money;
+	int id;
+	
+	cout<<"계좌 ID : ";			cin>>id;
+	cout<<"입금액 : ";				cin>>money;
+	
+	for(int i=0;i<index;i++)
+	{
+		if(pArray[i].id == id)
+		{
+			pArray[i].balance += money;
+			cout<<"입금 완료"<<endl;
+			return;
+		}
+	}
+	cout<<"유효하지 않은 ID입니다."<<endl;
+}
+
+void Withdraw()
+{
+	int money;
+	int id;
+	
+	cout<<"계좌 ID : ";			cin>>id;
+	cout<<"출금액 : ";				cin>>money;
+	
+	for(int i=0; i<index;i++)
+	{
+		if(pArray[i].id == id)
+		{
+			if(pArray[i].balance < money)
+			{
+				cout<<"잔액 부족"<<endl;
+				return;
+			}
+			pArray[i].balance-=money;
+			cout<<"출금 완료"<<endl;
+			return;
+		}	
+	}
+	cout<<"유요하지 않은 ID입니다."<<endl;
+}
+
+void Inquire()
+{
+	for(int i=0;i<index;i++)
+	{
+		cout<<"계좌 ID : "<<pArray[i].id<<endl;
+		cout<<"이름 : "<<pArray[i].name<<endl;
+		cout<<"잔액 : "<<pArray[i].balance<<endl<<endl;
+	}
+}
