@@ -13,7 +13,7 @@ private:
 	
 public:
 	void InitMembers(int price, int num, int money);
-	int SaleApples(int money);
+	bool SaleApples(int money, int &num);
 	void ShowSalesResult();
 };
 
@@ -25,7 +25,7 @@ private:
 	
 public:
 	void InitMembers(int money);
-	void BuyApples(FruitSeller &seller, int money);
+	bool BuyApples(FruitSeller &seller, int money);
 	void ShowBuyResult();
 };
 
